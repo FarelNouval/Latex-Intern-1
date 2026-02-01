@@ -1,0 +1,383 @@
+% Template LaTeX untuk Ujian Kualifikasi
+% Program Studi Doktor Informatika
+% Universitas Telkom
+
+% Document Class
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx} % Times New Roman
+\usepackage{courier}  % Courier for monospace
+\usepackage{helvet}   % Helvetica for sans-serif
+\usepackage{amsmath}
+\usepackage[english,indonesian]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[format=hang,font=footnotesize,labelfont=bf]{caption}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{ragged2e}  % For better text justification in bibliography
+
+% Page Setup
+\geometry{
+    top=3cm,
+    bottom=3cm,
+    left=4cm,
+    right=3cm
+}
+
+% Title Formatting
+\titleformat{\section}
+    {\normalfont\fontsize{16}{19}\bfseries\centering}{\thesection}{1em}{}
+    
+\titleformat{\subsection}
+    {\normalfont\fontsize{12}{14}\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+    {\normalfont\fontsize{12}{14}\normalfont}{\thesubsubsection}{1em}{}
+
+% Spacing
+\onehalfspacing
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black,
+}
+
+% Table of Contents customization
+\renewcommand{\contentsname}{DAFTAR ISI}
+\renewcommand{\cfttoctitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+% List of Tables customization
+\renewcommand{\listtablename}{DAFTAR TABEL}
+\renewcommand{\cftlottitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+
+% List of Figures customization
+\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+\renewcommand{\cftloftitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+
+% List of Equations setup
+\newcommand{\listequationsname}{DAFTAR RUMUS}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{%
+\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+\renewcommand{\cftequtitlefont}{\hfill\fontsize{16}{19}\selectfont\bfseries}
+\renewcommand{\cftafterequtitle}{\hfill}
+\setlength{\cftmyequationsindent}{0pt}
+
+% Redefine \listofequations to use the custom list
+\newcommand{\listofequations}{\listofmyequations}
+
+% Subsection numbering format
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+% Custom Commands
+\newcommand{\myTitle}[1]{\def\@myTitle{#1}}
+\newcommand{\myName}[1]{\def\@myName{#1}}
+\newcommand{\myNIM}[1]{\def\@myNIM{#1}}
+\newcommand{\myYear}[1]{\def\@myYear{#1}}
+
+% Redefine title
+\makeatletter
+% Initialize default values
+\def\@myTitle{PERANCANGAN APLIKASI JATIDIRI MENGGUNAKAN METODE PROTOTYPE DAN FRAMEWORK FLUTTER}
+\def\@myNIM{1214070}
+\def\@myName{Farel Nouval Daswara}
+\def\@myYear{2026}
+
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+        \centering
+        \vspace*{0.5cm}
+        
+        % Judul Penelitian (bagian atas)
+        {\fontsize{16}{20}\selectfont
+        \textbf{PERANCANGAN APLIKASI JATIDIRI MENGGUNAKAN METODE PROTOTYPE DAN FRAMEWORK FLUTTER}\par}
+        
+        \vspace{1.5cm}
+        
+        % Tahap Ujian Kualifikasi
+        {\fontsize{12}{14}\selectfont
+        \textbf{Internship 1}\par}
+        
+        \vspace{1.5cm}
+        
+        % NIM dan Nama
+        {\fontsize{12}{14}\selectfont
+        \textbf{\@myNIM}\par
+        \textbf{\@myName}\par}
+        
+        \vspace{1.5cm}
+        \vspace{1.5cm}
+        \vspace{1.5cm}
+     
+        
+        % Logo
+        \IfFileExists{logo.png}{
+            \includegraphics[width=0.5\textwidth]{logo.png}
+        }{
+            {\fontsize{16}{19}\bfseries Logo\par}
+        }
+        
+        \vfill
+        
+        % Program Studi dan Informasi
+        {\fontsize{16}{19}\selectfont
+        \textbf{Program Studi Sarjana Terapan Teknik Informatika}\par
+        \textbf{Sekolah Teknologi Informasi}\par
+        \textbf{Universitas Logistik dan Bisnis Internasional}\par
+        \textbf{Bandung}\par
+        \textbf{2026}\par}
+        
+    \end{titlepage}
+    \newpage
+}
+\makeatother
+
+% SOTA Table Environment
+\newenvironment{sototable}
+    {\begin{table}[htbp]
+    \centering
+    \caption{State-of-the-Art Penelitian}
+    \label{tab:sota}}
+    {\end{table}}
+
+% Word Count Environments
+\newenvironment{summary}
+    {}
+    {}
+
+\newenvironment{background}
+    {}
+    {}
+
+\newenvironment{literaturereview}
+    {}
+    {}
+
+\newenvironment{researchgap}
+    {}
+    {}
+
+\newenvironment{novelty}
+    {}
+    {}
+
+% Bibliography Style - APA-like with BibTeX
+\usepackage[
+    backend=bibtex,   % Menggunakan BibTeX (biber tidak berfungsi di sistem ini)
+    style=authoryear, % Author-year citation style (APA-like)
+    sorting=nyt,      % Sort by name, year, title
+    maxbibnames=99,   % Tampilkan semua nama penulis
+    dashed=false,     % Jangan gunakan dash untuk author yang sama
+    url=false,        % Jangan tampilkan URL
+    doi=true,         % Tampilkan DOI
+]{biblatex}
+
+\urlstyle{same} % Samakan font URL/DOI dengan teks utama
+
+\addbibresource{references.bib}
+\addbibresource{include.bib}
+%\addbibresource{visualdecoding.bib} % Uncomment jika ingin menggunakan file bib tambahan
+
+% Make \cite behave like \parencite (with parentheses)
+\let\cite\parencite
+
+% Custom citation formatting
+\renewcommand*{\finalnamedelim}{\addspace\&\addspace}  % Ubah "and" jadi "&"
+\renewcommand*{\nameyeardelim}{\addcomma\space}        % Tambahkan koma setelah author
+
+% Remove "In:" from bibliography
+\renewbibmacro{in:}{}
+
+% Ensure pages are not bold
+\DeclareFieldFormat{pages}{\normalfont #1}
+
+% Custom format untuk memastikan ada spasi setelah "in"
+\DeclareFieldFormat{booktitle}{\addspace\textit{#1}}
+\DeclareFieldFormat{journaltitle}{\addspace\textit{#1}}
+
+% Fix URL breaking untuk mencegah overflow
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+% Set bibliography to use ragged right alignment untuk mencegah overfull
+\emergencystretch=1em
+\appto{\bibsetup}{\sloppy\RaggedRight}
+
+
+
+% Set document metadata
+\myTitle{PERANCANGAN APLIKASI JATIDIRI MENGGUNAKAN METODE PROTOTYPE DAN FRAMEWORK FLUTTER}
+\myNIM{1214070}
+\myName{Farel Nouval Daswara}
+\myYear{2026}
+
+% Beginning of Document
+\begin{document}
+
+% Force TOC title to be uppercase (fix for babel override)
+\renewcommand{\contentsname}{DAFTAR ISI}
+\renewcommand{\listtablename}{DAFTAR TABEL}
+\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+
+% Use Times New Roman as default font
+\rmfamily
+
+% Title Page
+\maketitle
+
+% Halaman Depan menggunakan angka Romawi
+\pagenumbering{roman}
+
+% DAFTAR ISI
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR ISI}
+\tableofcontents
+\clearpage
+
+% DAFTAR TABEL
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR TABEL}
+\listoftables
+\clearpage
+
+% DAFTAR GAMBAR
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR GAMBAR}
+\listoffigures
+\clearpage
+
+% DAFTAR RUMUS
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR RUMUS}
+\listofequations
+\clearpage
+
+% ABSTRAK
+\clearpage
+\section*{ABSTRAK}
+\phantomsection
+\addcontentsline{toc}{section}{ABSTRAK}
+\input{chapters/abstrak}
+
+% ABSTRACT
+\clearpage
+\section*{ABSTRACT}
+\phantomsection
+\addcontentsline{toc}{section}{ABSTRACT}
+\input{chapters/abstract}
+
+\clearpage
+
+% BAB 1 - PENDAHULUAN
+\setcounter{section}{0}
+\setcounter{page}{1}   % Reset halaman ke 1
+\section*{BAB 1 \\ PENDAHULUAN}
+\phantomsection
+\addcontentsline{toc}{section}{BAB 1 PENDAHULUAN}
+\refstepcounter{section}
+
+\input{chapters/bab1}
+
+\clearpage
+
+% BAB 2 - LANDASAN TEORI
+\section*{BAB 2 \\ LANDASAN TEORI}
+\phantomsection
+\addcontentsline{toc}{section}{BAB 2 LANDASAN TEORI}
+\refstepcounter{section}
+
+\input{chapters/bab2}
+
+\clearpage
+
+% BAB 3 - ANALISIS ORGANISASI PERUSAHAAN
+\section*{BAB 3 \\ ANALISIS ORGANISASI PERUSAHAAN}
+\phantomsection
+\addcontentsline{toc}{section}{BAB 3 ANALISIS ORGANISASI PERUSAHAAN}
+\refstepcounter{section}
+
+\input{chapters/bab3}
+
+\clearpage
+
+% BAB 4 - METODOLOGI PENELITIAN
+\section*{BAB 4 \\ METODOLOGI PENELITIAN}
+\phantomsection
+\addcontentsline{toc}{section}{BAB 4 METODOLOGI PENELITIAN}
+\refstepcounter{section}
+
+\input{chapters/bab4}
+
+\clearpage
+
+% BAB 5 - HASIL DAN PEMBAHASAN
+\section*{BAB 5 \\ HASIL DAN PEMBAHASAN}
+\phantomsection
+\addcontentsline{toc}{section}{BAB 5 HASIL DAN PEMBAHASAN}
+\refstepcounter{section}
+
+\input{chapters/bab5}
+
+\clearpage
+
+% BAB 6 - PENUTUP
+\section*{BAB 5 \\ PENUTUP}
+\phantomsection
+\addcontentsline{toc}{section}{BAB 6 PENUTUP}
+\refstepcounter{section}
+
+\input{chapters/bab6}
+
+\clearpage
+
+% DAFTAR PUSTAKA
+\clearpage
+\section*{DAFTAR PUSTAKA}
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR PUSTAKA}
+
+\input{chapters/daftarpustaka}
+
+\clearpage
+
+
+% DAFTAR LAMPIRAN
+\section*{DAFTAR LAMPIRAN}
+\phantomsection
+\addcontentsline{toc}{section}{DAFTAR LAMPIRAN}
+
+\input{chapters/lampiran}
+
+\clearpage
+
+
+\end{document}
