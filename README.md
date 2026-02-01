@@ -45,13 +45,13 @@ https://git-scm.com/
 Install Antigravity
 Install extension vscode-pdf di VS Code
 
-## Package yang diperlukan
+### Package yang diperlukan
 Install semua package sekaligus:
 ```
 tlmgr install inputenc fontenc mathptmx courier helvet amsmath babel geometry setspace titlesec graphicx
 ```
 
-## Atau install satu per satu
+### Atau install satu per satu
 ```
 tlmgr install inputenc
 tlmgr install fontenc
@@ -66,7 +66,14 @@ tlmgr install titlesec
 tlmgr install graphicx
 ```
 
+## Cara Menjalankan Project
+1. Buka folder project menggunakan Antigravity / VS Code
 
+2. Buka file main.tex
+
+3. Compile dengan LaTeX (PDF akan otomatis terbentuk)
+
+4. Preview hasil PDF menggunakan extension vscode-pdf
 
 
 
