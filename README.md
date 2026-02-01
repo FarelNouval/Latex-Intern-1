@@ -29,4 +29,45 @@ tinytex::uninstall_tinytex()
 tinytex::tinytex_root()
 tinytex::tlmgr("--version")
 
-###
+```
+---
+
+### 3. Install package menggunakan tlmgr
+```
+tlmgr install <package_name>
+```
+
+### 4. Install Git SCM dan hubungkan ke repository GitHub
+Download Git dari:
+https://git-scm.com/
+
+### 5. Install Antigravity dan extension vscode-pdf
+Install Antigravity
+Install extension vscode-pdf di VS Code
+
+## Package yang diperlukan
+Install semua package sekaligus:
+```
+tlmgr install inputenc fontenc mathptmx courier helvet amsmath babel geometry setspace titlesec graphicx
+```
+
+## Atau install satu per satu
+```
+tlmgr install inputenc
+tlmgr install fontenc
+tlmgr install mathptmx
+tlmgr install courier
+tlmgr install helvet
+tlmgr install amsmath
+tlmgr install babel
+tlmgr install geometry
+tlmgr install setspace
+tlmgr install titlesec
+tlmgr install graphicx
+```
+
+
+
+
+
+
